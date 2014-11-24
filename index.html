@@ -12,168 +12,92 @@
     <link rel="stylesheet" href="styles/font-awesome.min.css">
     <!-- documentation styles -->
     <link rel="stylesheet" type="text/css" href="styles/docs.css">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-    <link rel="shortcut icon" type="image/png" href="fav2.png"/>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="shortcut icon" type="image/png" href="fav.png"/>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+      stLight.options({
+        publisher: "8b19cd07-ea9c-4de0-a955-65dc90b74070",
+        doNotHash: true,
+        doNotCopy: false,
+        hashAddressBar: false
+      });
+    </script>
+
 </head>  
 <body data-spy="scroll" data-target=".subnav" data-offset="50" screen_capture_injected="true">
- 
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '884890331523133',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+    function onLogin(response) {
+      if (response.status == 'connected') {
+        FB.api('/me?fields=first_name', function(data) {
+          var welcomeBlock = document.getElementById('fb-welcome');
+          welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+        });
+      }
+    }
 
-  <style>
-    .app {
-      background: #00988F;
-      max-width: 760px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin-right: auto;
-      margin-left: auto;
-    }
-    .app .head {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 670px;
-      background: #fff;
-      height: 36px;
-      border-radius: 0px 0px 30px 30px;
+    FB.getLoginStatus(function(response) {
+      // Check login status on load, and if the user is
+      // already logged in, go directly to the welcome message.
+      if (response.status == 'connected') {
+        onLogin(response);
+      } else {
+        // Otherwise, show Login dialog first.
+        FB.login(function(response) {
+          onLogin(response);
+        }, {scope: 'user_friends, email'});
+      }
+    });
+  };
 
-    }
-    .app .head .logo img {
-      padding-top:6px;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-    }
-    .app .head .lang {
-      height: 30px;
-      float: right;
-      width: 150px;
-      position: absolute;
-      left: 68%;
-      top: 6px;
-    }
-    .app .head .lang div {
-      background-repeat:no-repeat;
-      background-size:contain;
-      background-position:center;
-      width: 32px;
-      height: 24px;
-      line-height: 20px;
-      font-size: 14px;
-      float: left;
-      margin-left: 4px;
-      text-align: center;
-      color: #10aca3;
-    }
-    .app .head .lang div:hover {
-      opacity: 1;
-      cursor: pointer;
-    }
-    .app .head .lang .geo {
-      /background-image:url('images/geo.png');
-    }
-    .act {
-      opacity: 1;
-      border-bottom: 3px solid #10aca3;
-      margin-left: 10px;
-      font-size: 14px !important;
-    }
-    .app .head .lang .eng {
-      /background-image:url('images/eng.png');
-    }
-    .app .head .lang .rus {
-      /background-image:url('images/rus.png');
-    }
-    .tiles {
-      max-width: 650px;
-      height: 700px;
-      margin-left: 5%;
-      margin-top: 10px;
-    }
-    .tiles h1 {
-      font-size: 16px;
-      position: relative;
-      top: -4px;
-    }
-    .tiles .tile {
-      border-radius: 10px 10px 50px 10px;
-      opacity: 1;
-      border: 2px solid rgba(255, 255, 255, 0.6);
-      background: #10aca3;
-      margin: 6px;
-    }
-    .tiles .tile:hover {
-      border: 4px solid rgba(255, 255, 255, 1);
-    }
-    .tiles .tile a {
-      height: 70px;
-      display: block;
-    }
-    .tiles .tile .fa {
-      color: #fff;
-      z-index: 2;
-      position: relative;
-      float: right;
-      margin-right: 20px;
-    }
-    .over {
-      position: absolute;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 4;
-      max-width: 760px;
-      height: 750px;
-      margin-right: auto;
-      margin-left: auto;
-      left: 0;
-      right: 0;
-    }
-    .over .message {
-      background: #10aca3;
-      width: 60%;
-      height: 300px;
-      padding-top: 20px;
-      margin-top: 150px;
-      border: 6px solid #fff;
-      z-index: 2;
-      margin-left: auto;
-      margin-right: auto;
-      left: 0;
-      right: 0;
-      font-size: 22px;
-      text-align: center;
-      color: #fff;
-      border-radius: 80px 0px 80px 0px;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-    .over .message h1 {
-      font-size: 100px;
-      font-weight: bold;
-      padding-top: 10px;
-    }
-    .over .message .close {
-      color: #fff;
-      position: relative;
-      left: -10px;
-      opacity: 1;
-    }
-  </style>
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
-<div class="over">
-  <div class="message">
+<h1 id="fb-welcome"></h1>
+
+<div id="over">
+  <div class="dialog">
     <i class="close fa fa-close fa-1x"></i>
     <h1>3</h1>
-    Rupori: Please choose 3 options.
-    <br>Which of these are most important for you?
+    გთხოვთ აირჩიოთ 3 პრობლემა.
+    <br>რა არის თქვენთვის ყველაზე მეტად მნიშვნელოვანი?
   </div>
 </div>
-<div class="app">
+
+<div id="mess">
+  <div class="data">
+    <img src="images/data.png">
+  </div>
+  <div class="thank">
+    <span>გმადლობთ!</span>თქვენი ხმა მიღებულია...
+    <div>გთხოვთ გააზიარეთ ეს ინფორმაცია:</div>
+  </div>
+  <div class="social">
+    <span class='st_facebook_large' displayText='Facebook' st_url="https://apps.facebook.com/djeirani/" st_title="Hello world" st_image="http://image.dhgate.com/albu_363142882_00-1.0x0/sexy-girl-lady-padded-boho-fringe-top-strapless.jpg" st_summary="summary description"></span>
+    <span class='st_twitter_large' displayText='Tweet' st_url="https://apps.facebook.com/djeirani/" st_title="Hello world" st_image="http://image.dhgate.com/albu_363142882_00-1.0x0/sexy-girl-lady-padded-boho-fringe-top-strapless.jpg" st_summary="summary description"></span>
+    <span class='st_linkedin_large' displayText='LinkedIn' st_url="https://apps.facebook.com/djeirani/" st_title="Hello world" st_image="http://image.dhgate.com/albu_363142882_00-1.0x0/sexy-girl-lady-padded-boho-fringe-top-strapless.jpg" st_summary="summary description"></span>
+  </div>
+</div>
+
+<div id="app">
   <div class="head">
     <div class="logo">
       <img src="images/logo-blue.png" width="100">
@@ -186,129 +110,129 @@
   </div>
   <div class="tiles">
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-blue col-md-3">
+        <div class="thumbnail tile tile-medium tile-blue col-md-3" id="1">
           <a href="#">
-            <h1>AN HONEST AND RESPONSIVE GOVERNMENT</h1>
+            <h1>სამართლიანი და გამჭირვალე მთავრობა</h1>
           </a>
         <i class="fa fa-building fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-green col-md-3">
+        <div class="thumbnail tile tile-medium tile-green col-md-3" id="2">
           <a href="#">
-            <h1>ACCESS TO CLEAN WATER AND SANITATION</h1>
+            <h1>სუფთა წყალი და სანიტარია</h1>
           </a>
         <i class="fa fa-coffee fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-red col-md-3">
+        <div class="thumbnail tile tile-medium tile-red col-md-3" id="3">
           <a href="#">
-              <h1>POLITICAL FREEDOMS</h1>
+              <h1>პოლიტიკური თავისუფლება</h1>
           </a>
         <i class="fa fa-user fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-yellow col-md-3">
+        <div class="thumbnail tile tile-medium tile-yellow col-md-3" id="4">
           <a href="#">
-              <h1>AFFORDABLE AND NUTRITIOUS FOOD</h1>
+              <h1>ხელმისაწვდომი და მკვებავი საჭმელი</h1>
           </a>
         <i class="fa fa-spoon fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-pink col-md-3 ">
+        <div class="thumbnail tile tile-medium tile-pink col-md-3" id="5">
           <a href="#">
-              <h1>PROTECTING FORESTS, RIVERS AND OCEANS</h1>
+              <h1>ტყის, მდინარისა და ოკეანის დაცვა</h1>
           </a>
         <i class="fa fa-tree fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-purple col-md-3">
+        <div class="thumbnail tile tile-medium tile-purple col-md-3" id="6">
           <a href="#">
-              <h1>PROTECTION AGAINST CRIME AND VIOLENCE</h1>
+              <h1>კრიმინალისა და ძალადობისგან დაცვა</h1>
           </a>
         <i class="fa fa-shield fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-lime col-md-3">
+        <div class="thumbnail tile tile-medium tile-lime col-md-3" id="7">
           <a href="#">
-              <h1>PHONE AND INTERNET ACCESS</h1>
+              <h1>სატელეფონო და ინტერნეტ კავშირი</h1>
           </a>
         <i class="fa fa-globe fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-magenta col-md-3">
+        <div class="thumbnail tile tile-medium tile-magenta col-md-3" id="8">
           <a href="#">
-              <h1>BETTER JOB OPPORTUNITIES</h1>
+              <h1>კარგი სამუშაო პერსპექტივები</h1>
           </a>
         <i class="fa fa-briefcase fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-teal col-md-3">
+        <div class="thumbnail tile tile-medium tile-teal col-md-3" id="9">
           <a href="#">
-              <h1>EQUALITY BETWEEN MEN AND WOMEN</h1>
+              <h1>გენდერული თანასწორობა</h1>
           </a>
         <i class="fa fa-legal fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-turquoise col-md-3">
+        <div class="thumbnail tile tile-medium tile-turquoise col-md-3" id="10">
           <a href="#">
-              <h1>FREEDOM FROM DISCRIMINATION AND PERSECUTION</h1>
+              <h1>დევნისა და დისკრიმინაციისგან თავისუფლება</h1>
           </a>
         <i class="fa fa-ban fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-green-sea col-md-3">
+        <div class="thumbnail tile tile-medium tile-green-sea col-md-3" id="11">
           <a href="#">
-              <h1>RELIABLE ENERGY AT HOME</h1>
+              <h1>საიმედო ენერგია სახლში</h1>
           </a>
         <i class="fa fa-bolt fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-emerald col-md-3">
+        <div class="thumbnail tile tile-medium tile-emerald col-md-3" id="12">
           <a href="#">
-              <h1>SUPPORT FOR PEOPLE WHO CAN'T WORK</h1>
+              <h1>მხარის დაჭერა ადამიანებისთვის ვინც ვერ მუშაობს</h1>
           </a>
         <i class="fa fa-wheelchair fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium nephritis col-md-3">
+        <div class="thumbnail tile tile-medium nephritis col-md-3" id="13">
           <a href="#">
-              <h1>BETTER HEALTHCARE</h1>
+              <h1>კარგი ჯანდაცვა</h1>
           </a>
         <i class="fa fa-plus fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-peter-river col-md-3">
+        <div class="thumbnail tile tile-medium tile-peter-river col-md-3" id="14">
           <a href="#">
-              <h1>ACTION TAKEN ON CLIMATE CHANGE</h1>
+              <h1>ზომების მიღება კლიმატის ცვლილებისას</h1>
           </a>
         <i class="fa fa-cloud fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-belize-hole col-md-3">
+        <div class="thumbnail tile tile-medium tile-belize-hole col-md-3" id="15">
           <a href="#">
-              <h1>A GOOD EDUCATION</h1>
+              <h1>კარგი განათლება</h1>
           </a>
         <i class="fa fa-graduation-cap fa-3x"></i>
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-amethyst col-md-3">
+        <div class="thumbnail tile tile-medium tile-amethyst col-md-3" id="16">
           <a href="#">
-              <h1>BETTER TRANSPORT AND ROADS</h1>
+              <h1>კარგი გზები და ტრანსპორტი</h1>
           </a>
         <i class="fa fa-road fa-3x"></i>
         </div>
@@ -323,34 +247,43 @@
   <script type="text/javascript" src="scripts/metro-docs.js"></script>
 
   <script>
-
   $(window).load(function(){
 
-    // on close
+    // bounce effect
+    $.cssEase['bounce'] =
+      'cubic-bezier(0,1,0.5,1.3)';
 
+    $('#over').transition({ opacity: 1 });
+    $('#app').transition({ opacity: 1});
+    $('.dialog').transition({
+      y: 80,
+      duration: 500,
+      delay: 100 });
 
+    // close
+    $('.close').click(function() {
+      $('.dialog').transition({ display: 'none' });
+      $('#over').transition({ opacity: '0' });
+      $('#over').transition({ visibility: 'hidden' });
+    });
 
     // $('.tile').transition({ scale: 2.2 });
     var cnt = 1;
     $('.tile').click(function(){
-      //$(this).css({border: '4px solid #fff', opacity: '0.2'});
-      $(this).css({opacity: 0.5 });
+
+      $(this).css({opacity: 0.5, background: '#333' });
       $(this).transition({ scale: 0.9 });
-      //$(this).find('.fa').transition({ scale: 1.2 });
 
-      // $(this).transition({
-      //   perspective: '100px',
-      //   rotateX: '180deg'
-      // });
-
+      // finish
       if((cnt ++) == 3){
-        $('.tiles').transition({ scale: 0.9 });
+        $('.tiles').transition({ opacity: '0.6', delay: 300 });
+        $('#over').transition({ visibility: 'visible'  });
+        $('#over').transition({ opacity: '1', background: 'rgba(0, 0, 0, 0.4)', delay: 1200  });
+        $('#mess').transition({ visibility: 'visible', duration: 900, delay: 1800, y: 100 }, 'bounce');
       }
     });
 
   });
-
-    
 
   </script>
 
