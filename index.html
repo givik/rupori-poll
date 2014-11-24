@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="styles/font-awesome.min.css">
     <!-- documentation styles -->
     <link rel="stylesheet" type="text/css" href="styles/docs.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -23,244 +25,334 @@
 
 
   <style>
-    
+    .app {
+      background: #00988F;
+      max-width: 760px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .app .head {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 670px;
+      background: #fff;
+      height: 36px;
+      border-radius: 0px 0px 30px 30px;
+
+    }
+    .app .head .logo img {
+      padding-top:6px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .app .head .lang {
+      height: 30px;
+      float: right;
+      width: 150px;
+      position: absolute;
+      left: 68%;
+      top: 6px;
+    }
+    .app .head .lang div {
+      background-repeat:no-repeat;
+      background-size:contain;
+      background-position:center;
+      width: 32px;
+      height: 24px;
+      line-height: 20px;
+      font-size: 14px;
+      float: left;
+      margin-left: 4px;
+      text-align: center;
+      color: #10aca3;
+    }
+    .app .head .lang div:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+    .app .head .lang .geo {
+      /background-image:url('images/geo.png');
+    }
+    .act {
+      opacity: 1;
+      border-bottom: 3px solid #10aca3;
+      margin-left: 10px;
+      font-size: 14px !important;
+    }
+    .app .head .lang .eng {
+      /background-image:url('images/eng.png');
+    }
+    .app .head .lang .rus {
+      /background-image:url('images/rus.png');
+    }
     .tiles {
-      max-width: 700px;
-      height: 800px;
+      max-width: 650px;
+      height: 700px;
+      margin-left: 5%;
+      margin-top: 10px;
+    }
+    .tiles h1 {
+      font-size: 16px;
+      position: relative;
+      top: -4px;
+    }
+    .tiles .tile {
+      border-radius: 10px 10px 50px 10px;
+      opacity: 1;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      background: #10aca3;
+      margin: 6px;
+    }
+    .tiles .tile:hover {
+      border: 4px solid rgba(255, 255, 255, 1);
+    }
+    .tiles .tile a {
+      height: 70px;
+      display: block;
+    }
+    .tiles .tile .fa {
+      color: #fff;
+      z-index: 2;
+      position: relative;
+      float: right;
+      margin-right: 20px;
+    }
+    .over {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 4;
+      max-width: 760px;
+      height: 750px;
+      margin-right: auto;
+      margin-left: auto;
+      left: 0;
+      right: 0;
+    }
+    .over .message {
+      background: #10aca3;
+      width: 60%;
+      height: 300px;
+      padding-top: 20px;
+      margin-top: 150px;
+      border: 6px solid #fff;
+      z-index: 2;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      font-size: 22px;
+      text-align: center;
+      color: #fff;
+      border-radius: 80px 0px 80px 0px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .over .message h1 {
+      font-size: 100px;
+      font-weight: bold;
+      padding-top: 10px;
+    }
+    .over .message .close {
+      color: #fff;
+      position: relative;
+      left: -10px;
+      opacity: 1;
     }
   </style>
 
+<div class="over">
+  <div class="message">
+    <i class="close fa fa-close fa-1x"></i>
+    <h1>3</h1>
+    Rupori: Please choose 3 options.
+    <br>Which of these are most important for you?
+  </div>
+</div>
+<div class="app">
+  <div class="head">
+    <div class="logo">
+      <img src="images/logo-blue.png" width="100">
+    </div>
+    <div class="lang">
+      <div class="geo act">ქარ</div>
+      <div class="rus">рус</div>
+      <div class="eng">eng</div>
+    </div>
+  </div>
   <div class="tiles">
-          <div class="col-sm-3 col-md-3">
+      <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-blue col-md-3">
           <a href="#">
-            <h1>blue
-            </h1>
+            <h1>AN HONEST AND RESPONSIVE GOVERNMENT</h1>
           </a>
+        <i class="fa fa-building fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-green col-md-3">
           <a href="#">
-            <h1>green
-            </h1>
+            <h1>ACCESS TO CLEAN WATER AND SANITATION</h1>
           </a>
+        <i class="fa fa-coffee fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-red col-md-3">
           <a href="#">
-              <h1>red
-            </h1>
+              <h1>POLITICAL FREEDOMS</h1>
           </a>
+        <i class="fa fa-user fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-yellow col-md-3">
           <a href="#">
-              <h1>yellow
-            </h1>
+              <h1>AFFORDABLE AND NUTRITIOUS FOOD</h1>
           </a>
+        <i class="fa fa-spoon fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-pink col-md-3">
+        <div class="thumbnail tile tile-medium tile-pink col-md-3 ">
           <a href="#">
-              <h1>pink
-            </h1>
+              <h1>PROTECTING FORESTS, RIVERS AND OCEANS</h1>
           </a>
+        <i class="fa fa-tree fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-purple col-md-3">
           <a href="#">
-              <h1>purple
-            </h1>
+              <h1>PROTECTION AGAINST CRIME AND VIOLENCE</h1>
           </a>
+        <i class="fa fa-shield fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-lime col-md-3">
           <a href="#">
-              <h1>lime
-            </h1>
+              <h1>PHONE AND INTERNET ACCESS</h1>
           </a>
+        <i class="fa fa-globe fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-magenta col-md-3">
           <a href="#">
-              <h1>magenta
-            </h1>
+              <h1>BETTER JOB OPPORTUNITIES</h1>
           </a>
+        <i class="fa fa-briefcase fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-teal col-md-3">
           <a href="#">
-              <h1>teal
-            </h1>
+              <h1>EQUALITY BETWEEN MEN AND WOMEN</h1>
           </a>
+        <i class="fa fa-legal fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-turquoise col-md-3">
           <a href="#">
-              <h1>turquoise
-            </h1>
+              <h1>FREEDOM FROM DISCRIMINATION AND PERSECUTION</h1>
           </a>
+        <i class="fa fa-ban fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-green-sea col-md-3">
           <a href="#">
-              <h1>green sea
-            </h1>
+              <h1>RELIABLE ENERGY AT HOME</h1>
           </a>
+        <i class="fa fa-bolt fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-emerald col-md-3">
           <a href="#">
-              <h1>emerald
-            </h1>
+              <h1>SUPPORT FOR PEOPLE WHO CAN'T WORK</h1>
           </a>
+        <i class="fa fa-wheelchair fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium nephritis col-md-3">
           <a href="#">
-              <h1>nephritis
-            </h1>
+              <h1>BETTER HEALTHCARE</h1>
           </a>
+        <i class="fa fa-plus fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-peter-river col-md-3">
           <a href="#">
-              <h1>peter river
-            </h1>
+              <h1>ACTION TAKEN ON CLIMATE CHANGE</h1>
           </a>
+        <i class="fa fa-cloud fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-belize-hole col-md-3">
           <a href="#">
-              <h1>belize hole
-            </h1>
+              <h1>A GOOD EDUCATION</h1>
           </a>
+        <i class="fa fa-graduation-cap fa-3x"></i>
         </div>
-          </div>
+      </div>
       <div class="col-sm-3 col-md-3">
         <div class="thumbnail tile tile-medium tile-amethyst col-md-3">
           <a href="#">
-              <h1>amethyst
-            </h1>
+              <h1>BETTER TRANSPORT AND ROADS</h1>
           </a>
+        <i class="fa fa-road fa-3x"></i>
         </div>
-          </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-wisteria col-md-3">
-          <a href="#">
-              <h1>wisteria
-            </h1>
-          </a>
-        </div>
-          </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-wet-asphalt col-md-3">
-          <a href="#">
-              <h1>wet asphalt
-            </h1>
-          </a>
-        </div>
-          </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-midnight-blue col-md-3">
-          <a href="#">
-              <h1>midnight blue
-            </h1>
-          </a>
-        </div>
-          </div>
-          <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-sun-flower col-md-3">
-          <a href="#">
-              <h1>sun flower
-            </h1>
-          </a>
-        </div>
-          </div>
-          <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-orange col-md-3">
-          <a href="#">
-              <h1>orange
-            </h1>
-          </a>
-        </div>
-          </div>
-          <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-carrot col-md-3">
-          <a href="#">
-              <h1>carrot
-            </h1>
-          </a>
-        </div>
-          </div>
-          <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-pumpkin col-md-3">
-          <a href="#">
-              <h1>pumpkin
-            </h1>
-          </a>
-        </div>
-          </div>
-          <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-alizarin col-md-3">
-          <a href="#">
-              <h1>alizarin
-            </h1>
-          </a>
-        </div>
-          </div>
-          <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-pomegranate col-md-3">
-          <a href="#">
-              <h1>pomegranate
-            </h1>
-          </a>
-        </div>
-          </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-clouds col-md-3">
-          <a href="#">
-              <h1>clouds
-            </h1>
-          </a>
-        </div>
-          </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-silver col-md-3">
-          <a href="#">
-              <h1>silver
-            </h1>
-          </a>
-        </div>
-          </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="thumbnail tile tile-medium tile-concrete col-md-3">
-          <a href="#">
-              <h1>concrete
-            </h1>
-          </a>
-        </div>
-          </div>
+      </div>
   </div>
+</div>
 
   <!-- JS -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="scripts/vendor/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="scripts/vendor/jquery.transit.min.js"></script>
   <script type="text/javascript" src="scripts/vendor/bootstrap.min.js"></script>
   <script type="text/javascript" src="scripts/metro-docs.js"></script>
+
+  <script>
+
+  $(window).load(function(){
+
+    // on close
+    
+
+
+    // $('.tile').transition({ scale: 2.2 });
+    var cnt = 1;
+    $('.tile').click(function(){
+      //$(this).css({border: '4px solid #fff', opacity: '0.2'});
+      $(this).css({opacity: 0.5 });
+      $(this).transition({ scale: 0.9 });
+      //$(this).find('.fa').transition({ scale: 1.2 });
+
+      // $(this).transition({
+      //   perspective: '100px',
+      //   rotateX: '180deg'
+      // });
+
+      if((cnt ++) == 3){
+        $('.tiles').transition({ scale: 0.9 });
+      }
+    });
+
+  });
+
+    
+
+  </script>
 
 </body>
 </html>
