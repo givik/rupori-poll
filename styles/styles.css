@@ -8,6 +8,10 @@
     src: url(../fonts/bpg-square-super.ttf);
 }
 
+body {
+	background: #00988F;
+}
+
 #app {
   background: #00988F;
   max-width: 760px;
@@ -114,7 +118,7 @@
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
   z-index: 4;
-  max-width: 760px;
+  max-width: 100%;
   height: 750px;
   margin-right: auto;
   margin-left: auto;
