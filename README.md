@@ -1,4 +1,4 @@
-rupori-facebook
+rupori-poll
 ===============
 
 Rupori's FB application
